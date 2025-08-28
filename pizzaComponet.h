@@ -16,14 +16,14 @@ class PizzaComponent {
 };
 
 //PizzaComponent subclasses
-class ToppingGroup : public PizzaComponent{
+class ToppingGroup : public PizzaComponent {
     public:
         void add(PizzaComponent component);
     private:
         PizzaComponent * toppings;
 };
 
-class Topping : public PizzaComponent{
+class Topping : public PizzaComponent {
     public:
         Topping(string name, double price);
         string getName();

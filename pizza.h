@@ -13,7 +13,7 @@ class Pizza {
 };
 
 //Pizza subclasses
-class BasePizza : public Pizza{
+class BasePizza : public Pizza {
     public:
         double getPrice();
         string getName();
@@ -21,7 +21,7 @@ class BasePizza : public Pizza{
         PizzaComponent topping;
 };
 
-class PizzaDecorator : public Pizza{
+class PizzaDecorator : public Pizza {
     public:
         virtual double getPrice();
         virtual string getName();
@@ -30,13 +30,13 @@ class PizzaDecorator : public Pizza{
 };
 
 //PizzaDecorator subclasses
-class ExtraCheese : public PizzaDecorator{
+class ExtraCheese : public PizzaDecorator {
     public:
         double getPrice();
         string getName();
 };
 
-class StuffedCrust : public PizzaDecorator{
+class StuffedCrust : public PizzaDecorator {
     public:
         double getPrice();
         string getName();
