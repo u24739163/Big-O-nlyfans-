@@ -8,8 +8,8 @@ using namespace std;
 //PizzaComponent class
 class PizzaComponent {
     public:
-        virtual string getName();
-        virtual double getPrice();
+        virtual string getName() = 0;
+        virtual double getPrice() = 0;
     private:
         string name;
         double price;
@@ -18,7 +18,7 @@ class PizzaComponent {
 //PizzaComponent subclasses
 class ToppingGroup : public PizzaComponent {
     public:
-        void add(PizzaComponent component);
+        void add(PizzaComponent * component);
     private:
         PizzaComponent * toppings;
 };

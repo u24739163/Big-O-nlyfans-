@@ -1,7 +1,7 @@
 #ifndef PIZZA.h
 #define PIZZA.h
 
-#include "pizzaComponet.h"
+#include "pizzaComponent.h"
 
 //Pizza class 
 class Pizza {
