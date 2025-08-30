@@ -1,13 +1,13 @@
-#ifndef PIZZA.h
-#define PIZZA.h
+#ifndef PIZZA_H
+#define PIZZA_H
 
 #include "pizzaComponent.h"
 
 //Pizza class 
 class Pizza {
     public:
-        virtual double getPrice();
-        virtual string getName();
+        virtual string getName() = 0;
+        virtual double getPrice() = 0;
         void printPizza();
     private:
 };
@@ -15,31 +15,37 @@ class Pizza {
 //Pizza subclasses
 class BasePizza : public Pizza {
     public:
-        double getPrice();
-        string getName();
+        BasePizza(PizzaComponent * base);
+        string getName() override;
+        double getPrice() override;
     private:
-        PizzaComponent topping;
+        PizzaComponent * topping;
 };
 
+//PizzaDecorator
 class PizzaDecorator : public Pizza {
     public:
-        virtual double getPrice();
+        PizzaDecorator(Pizza * pizza);
         virtual string getName();
+        virtual double getPrice();
+        virtual ~PizzaDecorator();
     private:
-        Pizza pizza;
+        Pizza * basePizza;
 };
 
 //PizzaDecorator subclasses
 class ExtraCheese : public PizzaDecorator {
     public:
-        double getPrice();
-        string getName();
+        ExtraCheese(Pizza * p) : PizzaDecorator(p) {}
+        string getName() override;
+        double getPrice() override;
 };
 
 class StuffedCrust : public PizzaDecorator {
     public:
-        double getPrice();
-        string getName();
+        StuffedCrust(Pizza * p) : PizzaDecorator(p) {}
+        string getName() override;
+        double getPrice() override;
 };
 
 #endif

@@ -50,4 +50,5 @@ ToppingGroup::~ToppingGroup() {
 ToppingGroup::ToppingGroup(string groupName)
 {
     this->name = groupName;
+    this->price = 0;
 }

@@ -1,7 +1,7 @@
 
-filesToDelete = main pizzaComponent
-filesToCompile = main.cpp pizzaComponent.cpp
-filesInCoverageReport = main pizzaComponent
+filesToDelete = main pizzaComponent pizza
+filesToCompile = main.cpp pizzaComponent.cpp pizza.cpp
+filesInCoverageReport = main pizzaComponent pizza
 
 main:
 	g++ -g -std=c++11 ${filesToCompile} -o main

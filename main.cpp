@@ -1,5 +1,6 @@
 #include <iostream>
 #include "pizzaComponent.h"
+#include "pizza.h"
 using namespace std;
 
 int main() {
@@ -9,24 +10,29 @@ int main() {
     Topping* t4 = new Topping("pinapple",10);
 
     ToppingGroup* simplePizza = new ToppingGroup("simplePizza"); // Initialize with new
-    
     simplePizza->add(t1);
     simplePizza->add(t2);
     simplePizza->add(t3);
     simplePizza->add(t4);
-
+    
     ToppingGroup* complexPizza = new ToppingGroup("complexPizza");
 
     complexPizza->add(t1);
     complexPizza->add(t2);
     complexPizza->add(simplePizza);
     complexPizza->add(t4);
+    //The pizza to be decorated
+    //BasePizza* pizza = new BasePizza(complexPizza);
 
-    cout << complexPizza->getName() << endl;
-    cout << "Total price: " << complexPizza->getPrice() << endl;
+    //Decorating the pizza
+    ExtraCheese* pizzaWithExtras = new ExtraCheese(new StuffedCrust (new BasePizza(complexPizza)));
+
+    //Printing the new decorated pizza
+    cout << pizzaWithExtras->getName() << endl;
+    cout << "Total price: " << pizzaWithExtras->getPrice() << endl;
     
 
-    delete simplePizza; 
+    //delete simplePizza; 
     
     return 0;
 }
