@@ -1,8 +1,9 @@
-#ifndef PIZZACOMPONENT.h
-#define PIZZACOMPONENT.h
+#ifndef PIZZACOMPONENT_H
+#define PIZZACOMPONENT_H
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 //PizzaComponent class
@@ -10,7 +11,8 @@ class PizzaComponent {
     public:
         virtual string getName() = 0;
         virtual double getPrice() = 0;
-    private:
+        virtual ~PizzaComponent() {};
+    protected:
         string name;
         double price;
 };
@@ -18,18 +20,19 @@ class PizzaComponent {
 //PizzaComponent subclasses
 class ToppingGroup : public PizzaComponent {
     public:
+        ToppingGroup(string groupName);
         void add(PizzaComponent * component);
+        string getName() override;
+        double getPrice() override;
+        ~ToppingGroup();
     private:
-        PizzaComponent * toppings;
+        vector<PizzaComponent*> toppings;
 };
 
 class Topping : public PizzaComponent {
     public:
         Topping(string name, double price);
-        string getName();
-        double getPrice();
-    private:
-        string name;
-        double price;
+        string getName() override;
+        double getPrice() override;
 };
 #endif
