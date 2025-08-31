@@ -4,13 +4,17 @@
 #include <vector>
 #include "pizza.h"
 #include "DiscountStrategy.h"
-#include "State.h"
 
 class Order {
+    public:
+        void addPizza(Pizza* pizza);
+        void removePizza(Pizza* pizza);
+        void clearOrder();
+        void calculateTotal(vector<Pizza*> pizzas);
+        void applyDiscount(DiscountStrategy* strategy);
     private:
         vector<Pizza*> pizzas;
         DiscountStrategy* discountStrategy;
-        State state;
-}
+};
 
 #endif
