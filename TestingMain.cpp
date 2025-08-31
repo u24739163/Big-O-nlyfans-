@@ -40,14 +40,16 @@ int main() {
     Order* orderUp = new Order();
     orderUp->addPizza(pizza);
     // orderUp->addPizza(pizza2);
-    // orderUp->addPizza(pizzaWithExtras);
+    orderUp->addPizza(pizzaWithExtras);
+
+    orderUp->calculateTotal();
 
     // delete simplePizza; 
     // delete complexPizza;
     delete pizzaWithExtras;
     // delete pizza;
     // delete pizza2;
-    delete orderUp;
+    // delete orderUp;
     
     return 0;
 }

@@ -81,5 +81,5 @@ void Order::calculateTotal()
     
     }
     std::cout << "Total price after discount: " << total << "\n";
-    std::cout << "Total price after discount: " << total - (total * applyDiscount()) << "\n";
+    std::cout << "Total price after discount: " << (total - (total * applyDiscount())) << "\n";
 };
