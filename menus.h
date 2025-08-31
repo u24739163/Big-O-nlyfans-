@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "pizza.h"
+#include "state.h"
 
 class Menus {
     public:
@@ -20,8 +21,12 @@ class Menus {
 
 class Observer {
     public:
-      virtual void update(string message) = 0;  
-    private:
+        // void setState(State* state);
+        // string getState();
+        // void changeState();
+        virtual void update(string message) = 0;  
+    protected:
+        State* state;
 };
 
 class PizzaMenu : public Menus {
@@ -38,13 +43,13 @@ class SpecialMenu : public Menus {
 
 class Customer : public Observer {
     public:
-        void update(string message);  
+        void update(string message) override;
     private:
 };
 
 class Website : public Observer {
     public:
-        void update(string message);  
+        void update(string message) override;
     private:
 };
 

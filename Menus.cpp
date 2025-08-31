@@ -23,6 +23,21 @@ void Menus::removePizza(Pizza * pizza)
     notifyObserver("Pizza removed: " + pizza->getName());
 }
 
+// void Observer::setState(State* state)
+// {
+//     this->state = state;
+// }
+
+// string Observer::getState()
+// {
+//     return state->getState();
+// }
+
+// void Observer::changeState()
+// {
+//     state->handleChange(this);
+// }
+
 void PizzaMenu::notifyObserver(string message)
 {
     message = "Pizza Menu: " + message;
@@ -41,10 +56,12 @@ void SpecialMenu::notifyObserver(string message)
 
 void Customer::update(string message)
 {
+    //changeState();
     cout << "Customer received update: " << message << endl;
 }
 
 void Website::update(string message)
 {
+    //changeState();
     cout << "Website received update: " << message << endl;
 }
