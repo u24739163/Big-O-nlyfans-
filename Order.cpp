@@ -80,6 +80,12 @@ void Order::calculateTotal()
         total += pizzas[i]->getPrice();
     
     }
-    std::cout << "Total price after discount: " << total << "\n";
-    std::cout << "Total price after discount: " << (total - (total * applyDiscount())) << "\n";
+    std::cout << "Total price before discount: " << total << "\n";
+
+    double discounted = total - (total * applyDiscount());
+    double saved = total * applyDiscount();
+
+    std::cout << "You Saved: " << saved << "\n";
+
+    std::cout << "Total price after discount: " << discounted << "\n";
 };
