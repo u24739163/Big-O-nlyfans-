@@ -11,26 +11,27 @@ class DiscountStrategy
         vector<Pizza*> pizzas;
     public:
         DiscountStrategy();
-        virtual double applyDiscount();
+        virtual ~DiscountStrategy();
+        virtual double applyDiscount() = 0;
 };
 
 class FamilyDiscount : public DiscountStrategy 
 {
     public:
-        double applyDiscount();
+        double applyDiscount() override;
 };
 
 class RegularDiscount : public DiscountStrategy 
 {
     public:
-        double applyDiscount();
+        double applyDiscount() override;
 };
 
 class BulkDiscount : public DiscountStrategy 
 {
     public:
         BulkDiscount(std::vector<Pizza*> p);
-        double applyDiscount();
+        double applyDiscount() override;
 };
 
 #endif

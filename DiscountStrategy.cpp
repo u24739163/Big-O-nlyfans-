@@ -1,7 +1,11 @@
 #include "DiscountStrategy.h"
+
 DiscountStrategy::DiscountStrategy()
 {
-    vector<Pizza*> pizzas;
+}
+
+DiscountStrategy::~DiscountStrategy()
+{
 }
 
 double DiscountStrategy::applyDiscount()

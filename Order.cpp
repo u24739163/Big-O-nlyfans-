@@ -1,12 +1,18 @@
 #include "Order.h"
 
-vector<Pizza*> pizzas;
-DiscountStrategy* discountStrategy;
-
 Order::Order()
 {
     discountStrategy = new RegularDiscount();
-    vector<Pizza*> pizzas;
+}
+
+Order::~Order()
+{
+    delete discountStrategy;
+    for (int i = 0; i < pizzas.size(); i++) 
+    {
+        delete pizzas[i];
+    }
+    pizzas.clear();
 }
 
 Order::Order(DiscountStrategy* discountStrategy)
@@ -21,7 +27,7 @@ void Order::addPizza(Pizza* pizza)
     if (pizzas.size() >= 5) 
     {
         delete discountStrategy;
-        discountStrategy = new BulkDiscount(this->pizzas);
+        discountStrategy = new BulkDiscount(pizzas);
     }
     else 
     {
@@ -30,7 +36,7 @@ void Order::addPizza(Pizza* pizza)
     }
 };
 
-void removePizza(Pizza* pizza)
+void Order::removePizza(Pizza* pizza)
 {
     for (int i = 0; i < pizzas.size(); i++) 
     {
@@ -52,19 +58,21 @@ void removePizza(Pizza* pizza)
     }
 };
 
-void clearOrder()
+void Order::clearOrder()
 {
     pizzas.clear();
+    delete discountStrategy;
+    discountStrategy = new RegularDiscount();
 };
 
-double applyDiscount()
+double Order::applyDiscount()
 {
     
     return discountStrategy->applyDiscount();
 
 };
 
-void calculateTotal(vector<Pizza*> pizzas)
+void Order::calculateTotal()
 {
     double total = 0.0;
     for (int i = 0; i < pizzas.size(); i++) 

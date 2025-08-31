@@ -8,11 +8,12 @@
 class Order {
     public:
         Order();
+        ~Order();
         Order(DiscountStrategy* discountStrategy);
         void addPizza(Pizza* pizza);
         void removePizza(Pizza* pizza);
         void clearOrder();
-        void calculateTotal(vector<Pizza*> pizzas);
+        void calculateTotal();
         double applyDiscount();
     private:
         vector<Pizza*> pizzas;
