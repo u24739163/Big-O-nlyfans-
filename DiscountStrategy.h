@@ -1,22 +1,29 @@
 #ifndef DISCOUNTSTRATEGY_H
 #define DISCOUNTSTRATEGY_H
 
-class DiscountStrategy {
+#include <vector>
+#include "pizza.h"
+
+class DiscountStrategy 
+{
     public:
-        virtual double applyDiscount() = 0;
+        virtual double applyDiscount();
 };
 
-class FamilyDiscount : public DiscountStrategy {
+class FamilyDiscount : public DiscountStrategy 
+{
     public:
         double applyDiscount();
 };
 
-class RegularDiscount : public DiscountStrategy {
+class RegularDiscount : public DiscountStrategy 
+{
     public:
         double applyDiscount();
 };
 
-class BulkDiscount : public DiscountStrategy {
+class BulkDiscount : public DiscountStrategy 
+{
     public:
         double applyDiscount();
 };

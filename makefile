@@ -1,10 +1,10 @@
 
-filesToDelete = main pizzaComponent pizza
-filesToCompile = main.cpp pizzaComponent.cpp pizza.cpp
-filesInCoverageReport = main pizzaComponent pizza
+filesToDelete = TestingMain pizzaComponent pizza
+filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp
+filesInCoverageReport = TestingMain pizzaComponent pizza
 
 main:
-	g++ -g -std=c++11 ${filesToCompile} -o main
+	g++ -g -std=c++11 ${filesToCompile} -o TestingMain
 
 clean:
 	rm *.o *.gcov *.gcda *.gcno *.gz *.html *.css output.txt coverage.txt -f ${filesToDelete}

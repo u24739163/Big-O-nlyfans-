@@ -11,7 +11,7 @@ class Order {
         void removePizza(Pizza* pizza);
         void clearOrder();
         void calculateTotal(vector<Pizza*> pizzas);
-        void applyDiscount(DiscountStrategy* strategy);
+        double applyDiscount();
     private:
         vector<Pizza*> pizzas;
         DiscountStrategy* discountStrategy;
