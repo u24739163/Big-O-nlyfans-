@@ -1,7 +1,7 @@
 
-filesToDelete = TestingMain pizzaComponent pizza
-filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp
-filesInCoverageReport = TestingMain pizzaComponent pizza
+filesToDelete = TestingMain pizzaComponent pizza order 
+filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp Order.cpp DiscountStrategy.cpp
+filesInCoverageReport = TestingMain pizzaComponent pizza Order DiscountStrategy
 
 main:
 	g++ -g -std=c++11 ${filesToCompile} -o TestingMain
@@ -20,4 +20,4 @@ coverage:
 valgrind:
 	make clean
 	make
-	valgrind --track-origins=yes --leak-check=full --keep-stacktraces=alloc-and-free --error-exitcode=1 --log-file=valgrind.txt ./main > output.txt
+	valgrind --track-origins=yes --leak-check=full --keep-stacktraces=alloc-and-free --error-exitcode=1 --log-file=valgrind.txt ./TestingMain > output.txt

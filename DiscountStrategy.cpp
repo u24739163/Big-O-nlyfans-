@@ -1,38 +1,31 @@
 #include "DiscountStrategy.h"
-
-class DiscountStrategy 
+DiscountStrategy::DiscountStrategy()
 {
-    public:
-        virtual double applyDiscount()
-        {
-            return 0.0;
-        };
+    vector<Pizza*> pizzas;
+}
+
+double DiscountStrategy::applyDiscount()
+{
+    return 0.0;
 };
 
-
-class FamilyDiscount : public DiscountStrategy 
+double FamilyDiscount::applyDiscount()
 {
-    public:
-        double applyDiscount()
-        {
-            return 0.15;
-        };
+    return 0.15;
 };
 
-class RegularDiscount : public DiscountStrategy 
+double RegularDiscount::applyDiscount()
 {
-    public:
-        double applyDiscount()
-        {
-            return 0.0;
-        };
+    return 0.0;
 };
 
-class BulkDiscount : public DiscountStrategy 
+BulkDiscount::BulkDiscount(vector<Pizza*> p)
 {
-    public:
-        double applyDiscount()
-        {
-            return 0.1;
-        };
+    pizzas = p;
+}
+
+double BulkDiscount::applyDiscount()
+{
+    double answer = floor(pizzas.size() / 5);
+    return answer * 0.1;
 };

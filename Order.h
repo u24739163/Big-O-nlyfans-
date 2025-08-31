@@ -7,6 +7,8 @@
 
 class Order {
     public:
+        Order();
+        Order(DiscountStrategy* discountStrategy);
         void addPizza(Pizza* pizza);
         void removePizza(Pizza* pizza);
         void clearOrder();

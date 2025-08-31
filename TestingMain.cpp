@@ -2,6 +2,7 @@
 #include "pizzaComponent.h"
 #include "pizza.h"
 #include "Order.h"
+
 using namespace std;
 
 int main() {
@@ -33,19 +34,19 @@ int main() {
 
     //The pizza to be decorated
     BasePizza* pizza = new BasePizza(complexPizza);
-    BasePizza* pizza2 = new BasePizza(simplePizza);
+    // BasePizza* pizza2 = new BasePizza(simplePizza);
     
     //adding pizza's to order
     Order* orderUp = new Order();
     orderUp->addPizza(pizza);
-    orderUp->addPizza(pizza2);
-    orderUp->addPizza(pizzaWithExtras);
+    // orderUp->addPizza(pizza2);
+    // orderUp->addPizza(pizzaWithExtras);
 
-    delete simplePizza; 
-    delete complexPizza;
+    // delete simplePizza; 
+    // delete complexPizza;
     delete pizzaWithExtras;
-    delete pizza;
-    delete pizza2;
+    // delete pizza;
+    // delete pizza2;
     delete orderUp;
     
     return 0;
