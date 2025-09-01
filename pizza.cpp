@@ -1,4 +1,4 @@
-#include "pizza.h"
+#include "Pizza.h"
 PizzaDecorator::PizzaDecorator(Pizza * pizza)
 {
     basePizza = pizza;

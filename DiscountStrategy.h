@@ -2,8 +2,7 @@
 #define DISCOUNTSTRATEGY_H
 
 #include <vector>
-#include <cmath>
-#include "pizza.h"
+#include "Pizza.h"
 
 class DiscountStrategy 
 {

@@ -3,7 +3,7 @@
 #ifndef PIZZA_H
 #define PIZZA_H
 
-#include "pizzaComponent.h"
+#include "PizzaComponent.h"
 
 class Pizza {
     public:

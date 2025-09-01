@@ -1,7 +1,7 @@
 
-filesToDelete = TestingMain pizzaComponent pizza Order Menus State 
-filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp State.cpp Order.cpp DiscountStrategy.cpp Menus.cpp 
-filesInCoverageReport = TestingMain pizzaComponent pizza Order DiscountStrategy Menus State 
+filesToDelete = TestingMain PizzaComponent Pizza Order Menus State 
+filesToCompile = TestingMain.cpp PizzaComponent.cpp Pizza.cpp State.cpp Order.cpp DiscountStrategy.cpp Menus.cpp 
+filesInCoverageReport = TestingMain PizzaComponent Pizza Order DiscountStrategy Menus State 
 
 main:
 	g++ -g -std=c++11 ${filesToCompile} -o TestingMain

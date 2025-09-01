@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "pizza.h"
+#include "Pizza.h"
 
 using namespace std;
 

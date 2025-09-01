@@ -1,4 +1,4 @@
-#include "pizzaComponent.h"
+#include "PizzaComponent.h"
 
 Topping::Topping(string name, double price)
 {

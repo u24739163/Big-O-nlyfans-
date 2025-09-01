@@ -1,6 +1,6 @@
 #include <iostream>
-#include "pizzaComponent.h"
-#include "pizza.h"
+#include "PizzaComponent.h"
+#include "Pizza.h"
 #include "State.h"
 #include "Order.h"
 #include "Menus.h"
