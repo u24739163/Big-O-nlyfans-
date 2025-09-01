@@ -18,6 +18,7 @@ class Order {
         void clearOrder();
         void calculateTotal();
         double applyDiscount();
+        void printOrder();
         //State things
         void setState(State* state);
         string getState();
