@@ -8,7 +8,7 @@ class Pizza {
     public:
         virtual string getName() = 0;
         virtual double getPrice() = 0;
-        void printPizza();
+        virtual void printPizza() = 0;
         virtual ~Pizza() {};
     private:
 };
@@ -19,6 +19,7 @@ class BasePizza : public Pizza {
         BasePizza(PizzaComponent * base);
         string getName() override;
         double getPrice() override;
+        void printPizza() override;
         virtual ~BasePizza();
     private:
         PizzaComponent * topping;
@@ -30,6 +31,7 @@ class PizzaDecorator : public Pizza {
         PizzaDecorator(Pizza * pizza);
         virtual string getName();
         virtual double getPrice();
+        virtual void printPizza() ;
         virtual ~PizzaDecorator();
     private:
         Pizza * basePizza;
@@ -41,6 +43,7 @@ class ExtraCheese : public PizzaDecorator {
         ExtraCheese(Pizza * p) : PizzaDecorator(p) {}
         string getName() override;
         double getPrice() override;
+        void printPizza() override;
 };
 
 class StuffedCrust : public PizzaDecorator {
@@ -48,6 +51,7 @@ class StuffedCrust : public PizzaDecorator {
         StuffedCrust(Pizza * p) : PizzaDecorator(p) {}
         string getName() override;
         double getPrice() override;
+        void printPizza() override;
 };
 
 #endif

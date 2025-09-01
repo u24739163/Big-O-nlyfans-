@@ -13,34 +13,33 @@ int main() {
     // Topping* t3 = new Topping("Cheese",10);
     // Topping* t4 = new Topping("Pineapple",10);
 
-    ToppingGroup* simplePizza = new ToppingGroup("simplePizza"); // Initialize with new
-    simplePizza->add(new Topping("Dough",10));
-    simplePizza->add(new Topping("Sauce",10));
-    simplePizza->add(new Topping("Cheese",10));
-    simplePizza->add(new Topping("Pineapple",10));
+    // ToppingGroup* simplePizza = new ToppingGroup("simplePizza"); // Initialize with new
+    // simplePizza->add(new Topping("Dough",10));
+    // simplePizza->add(new Topping("Sauce",10));
+    // simplePizza->add(new Topping("Cheese",10));
+    // simplePizza->add(new Topping("Pineapple",10));
     
-    ToppingGroup* complexPizza = new ToppingGroup("complexPizza");
+    // ToppingGroup* complexPizza = new ToppingGroup("complexPizza");
 
-    //complexPizza->add(t1);
-    //complexPizza->add(t2);
-    complexPizza->add(simplePizza);
-    complexPizza->add(new Topping("Pineapple",10));
+    // //complexPizza->add(t1);
+    // //complexPizza->add(t2);
+    // complexPizza->add(simplePizza);
+    // complexPizza->add(new Topping("Pineapple",10));
     
-    //Decorating the pizza
-    ExtraCheese* pizzaWithExtras = new ExtraCheese(new StuffedCrust (new BasePizza(complexPizza)));
+    // //Decorating the pizza
+    // ExtraCheese* pizzaWithExtras = new ExtraCheese(new StuffedCrust (new BasePizza(complexPizza)));
     
     // //Printing the new decorated pizza
     // cout << pizzaWithExtras->getName() << endl;
     // cout << "Total price: " << pizzaWithExtras->getPrice() << endl;
 
     ToppingGroup* pepperoni = new ToppingGroup("Pepperoni");
-    ToppingGroup* vegetarian = new ToppingGroup("Vegetarian");
-
     pepperoni->add(new Topping("Dough",10));
     pepperoni->add(new Topping("Cheese",10));
     pepperoni->add(new Topping("Sauce",10));
     pepperoni->add(new Topping("Pepperoni",20));
-
+    
+    ToppingGroup* vegetarian = new ToppingGroup("Vegetarian");
     vegetarian->add(new Topping("Dough",10));
     vegetarian->add(new Topping("Cheese",10));
     vegetarian->add(new Topping("Sauce",10));
@@ -50,7 +49,6 @@ int main() {
 
 
     ToppingGroup* meatLovers = new ToppingGroup("Meat Lovers");
-
     meatLovers->add(pepperoni->clone());
     meatLovers->add(new Topping("Beef Sausage",30));
     meatLovers->add(new Topping("Salami",20));
@@ -61,19 +59,29 @@ int main() {
     vegetarianDeluxe->add(new Topping("Olives",15));
 
     //The pizza to be decorated
-    BasePizza* meatLoversExtra = new BasePizza(meatLovers->clone());
-    BasePizza* vegetarianDeluxeExtra = new BasePizza(vegetarianDeluxe->clone());
+    BasePizza* pepperoniBase = new BasePizza(pepperoni->clone());
+    BasePizza* vegetarianBase = new BasePizza(vegetarian->clone());
+    BasePizza* meatLoversBase = new BasePizza(meatLovers->clone());
+    BasePizza* vegetarianDeluxeBase = new BasePizza(vegetarianDeluxe->clone());
+    //ExtraCheese* extraPizza = new ExtraCheese(new StuffedCrust (new BasePizza(vegetarianDeluxe->clone())));
 
     //adding pizza's to order
     Order* orderUp = new Order();
-    orderUp->addPizza(meatLoversExtra);
-    orderUp->addPizza(vegetarianDeluxeExtra);
-    orderUp->addPizza(pizzaWithExtras);
-    //orderUp->addPizza(pizza5);
-    // orderUp->addPizza(pizza6);
+    orderUp->addPizza(pepperoniBase);
+    orderUp->addPizza(vegetarianBase);
+    orderUp->addPizza(meatLoversBase);
+    orderUp->addPizza(vegetarianDeluxeBase);
+    orderUp->addPizza(new ExtraCheese(new StuffedCrust (new BasePizza(vegetarianDeluxe->clone()))));
+
+    orderUp->printOrder();
+
+    // pepperoniBase->printPizza();
+    // vegetarianBase->printPizza();
+    // meatLoversBase->printPizza();
+    // vegetarianDeluxeBase->printPizza();
+    // extraPizza->printPizza();
 
     orderUp->calculateTotal();
-
     // orderUp->removePizza(pizza3);
     // orderUp->removePizza(pizza4);
 
@@ -89,7 +97,11 @@ int main() {
     //delete pizzaWithExtras;
     //delete pizza;
     // delete pizza2;
-    // delete orderUp;
+    //delete orderUp;
+    delete pepperoni;
+    delete vegetarian;
+    delete meatLovers;
+    delete vegetarianDeluxe;
     delete orderUp;
     
     return 0;

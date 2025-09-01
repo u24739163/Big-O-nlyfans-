@@ -30,6 +30,12 @@ double ExtraCheese::getPrice()
     return PizzaDecorator::getPrice() + 20;
 }
 
+void ExtraCheese::printPizza()
+{
+    cout << "Pizza: " << getName() << endl;
+    cout << "Price: " << getPrice() << endl;
+}
+
 string StuffedCrust::getName()
 {
     return PizzaDecorator::getName() + " + (Stuffed Crust)";
@@ -40,9 +46,22 @@ double StuffedCrust::getPrice()
     return PizzaDecorator::getPrice() + 100;
 }
 
+void StuffedCrust::printPizza()
+{
+    cout << "Pizza: " << getName() << endl;
+    cout << "Price: " << getPrice() << endl;
+}
+
 PizzaDecorator::~PizzaDecorator()
 {
     delete basePizza;
+}
+
+void PizzaDecorator::printPizza()
+{
+    if (basePizza) {
+        basePizza->printPizza();
+    }
 }
 
 BasePizza::BasePizza(PizzaComponent * base)
@@ -58,6 +77,12 @@ string BasePizza::getName()
 double BasePizza::getPrice()
 {
     return topping->getPrice();
+}
+
+void BasePizza::printPizza()
+{
+    cout << "Pizza: " << getName() << endl;
+    cout << "Price: " << getPrice() << endl;
 }
 
 BasePizza::~BasePizza()
