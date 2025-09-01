@@ -1,35 +1,35 @@
 #include "state.h"
 
-void Ordered::handleChange(Observer* observer)
+void Ordered::handleChange(Order* order)
 {
-    observer->setState(new Preparing());
+    order->setState(new Preparing());
 }
 string Ordered::getState()
 {
     return "Order is in the Ordered state.";
 }
 
-void Preparing::handleChange(Observer* observer)
+void Preparing::handleChange(Order* order)
 {
-    observer->setState(new Delivering());
+    order->setState(new Delivering());
 }
 string Preparing::getState()
 {
     return "Order is being prepared.";
 }
 
-void Delivering::handleChange(Observer* observer)
+void Delivering::handleChange(Order* order)
 {
-    observer->setState(new Delivered());
+    order->setState(new Delivered());
 }
 string Delivering::getState()
 {
     return "Order is out for delivery.";
 }
 
-void Delivered::handleChange(Observer* observer)
+void Delivered::handleChange(Order* order)
 {
-    observer->setState(new Delivered());
+    order->setState(new Delivered());
 }
 string Delivered::getState()
 {

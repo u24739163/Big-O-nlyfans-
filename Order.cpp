@@ -72,6 +72,21 @@ double Order::applyDiscount()
 
 };
 
+void Order::setState(State* state)
+{
+    this->state = state;
+}
+
+string Order::getState()
+{
+    return state->getState();
+}
+
+void Order::changeState()
+{
+    state->handleChange(this);
+}
+
 void Order::calculateTotal()
 {
     double total = 0.0;

@@ -26,7 +26,7 @@ class Observer {
         // void changeState();
         virtual void update(string message) = 0;  
     protected:
-        State* state;
+        //State* state;
 };
 
 class PizzaMenu : public Menus {

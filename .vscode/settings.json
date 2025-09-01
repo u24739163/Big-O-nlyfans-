@@ -5,6 +5,14 @@
     "*.layout-template": "vue",
     "*.vue": "vue",
     "xstring": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "atomic": "cpp",
+    "ios": "cpp",
+    "system_error": "cpp",
+    "xiosbase": "cpp",
+    "xtree": "cpp",
+    "initializer_list": "cpp",
+    "utility": "cpp",
+    "xutility": "cpp"
   }
 }
