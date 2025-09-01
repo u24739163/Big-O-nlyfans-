@@ -24,7 +24,7 @@ class Order {
         string getState();
         void changeState();
     private:
-        State * state;
+        State* state;
         vector<Pizza*> pizzas;
         DiscountStrategy* discountStrategy;
 };
