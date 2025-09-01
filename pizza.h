@@ -34,11 +34,11 @@ class BasePizza : public Pizza {
 class PizzaDecorator : public Pizza {
     public:
         PizzaDecorator(Pizza * pizza);
-        PizzaDecorator(const PizzaDecorator& other); // Add copy constructor
+        PizzaDecorator(const PizzaDecorator& other);
         Pizza* clone() const override;
         virtual string getName();
         virtual double getPrice();
-        virtual void printPizza() ;
+        virtual void printPizza();
         virtual ~PizzaDecorator();
     private:
         Pizza * basePizza;
