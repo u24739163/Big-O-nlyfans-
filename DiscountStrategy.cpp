@@ -30,6 +30,5 @@ BulkDiscount::BulkDiscount(vector<Pizza*> p)
 
 double BulkDiscount::applyDiscount()
 {
-    // double answer = floor(pizzas.size() / 5);
     return 0.1;
 };

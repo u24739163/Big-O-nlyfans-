@@ -5,7 +5,6 @@
 
 #include "pizzaComponent.h"
 
-//Pizza class 
 class Pizza {
     public:
         virtual Pizza* clone() const = 0;
@@ -16,7 +15,6 @@ class Pizza {
     private:
 };
 
-//Pizza subclasses
 class BasePizza : public Pizza {
     public:
         BasePizza(PizzaComponent * base);
@@ -30,11 +28,10 @@ class BasePizza : public Pizza {
         PizzaComponent * topping;
 };
 
-//PizzaDecorator
 class PizzaDecorator : public Pizza {
     public:
         PizzaDecorator(Pizza * pizza);
-        PizzaDecorator(const PizzaDecorator& other); // Add copy constructor
+        PizzaDecorator(const PizzaDecorator& other);
         Pizza* clone() const override;
         virtual string getName();
         virtual double getPrice();
@@ -44,7 +41,6 @@ class PizzaDecorator : public Pizza {
         Pizza * basePizza;
 };
 
-//PizzaDecorator subclasses
 class ExtraCheese : public PizzaDecorator {
     public:
         ExtraCheese(Pizza * p) : PizzaDecorator(p) {}

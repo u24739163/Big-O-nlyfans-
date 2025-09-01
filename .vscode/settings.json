@@ -13,6 +13,7 @@
     "xtree": "cpp",
     "initializer_list": "cpp",
     "utility": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "iostream": "cpp"
   }
 }

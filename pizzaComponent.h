@@ -6,7 +6,6 @@
 #include <vector>
 using namespace std;
 
-//PizzaComponent class
 class PizzaComponent {
     public:
         virtual PizzaComponent* clone() const = 0;
@@ -18,7 +17,6 @@ class PizzaComponent {
         double price;
 };
 
-//PizzaComponent subclasses
 class ToppingGroup : public PizzaComponent {
     public:
         ToppingGroup(string groupName);

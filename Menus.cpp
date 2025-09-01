@@ -11,7 +11,7 @@ void Menus::removeObserver(Observer* observer)
     for (auto it = observers.begin(); it != observers.end(); ++it) {
         if (*it == observer) {
             observers.erase(it);
-            break;  // Remove only the first occurrence
+            break;
         }
     }
 }
@@ -27,26 +27,11 @@ void Menus::removePizza(Pizza * pizza)
     for (auto it = pizzas.begin(); it != pizzas.end(); ++it) {
         if (*it == pizza) {
             pizzas.erase(it);
-            break;  // Remove only the first occurrence
+            break;
         }
     }
     notifyObserver("Pizza removed: " + pizza->getName());
 }
-
-// void Observer::setState(State* state)
-// {
-//     this->state = state;
-// }
-
-// string Observer::getState()
-// {
-//     return state->getState();
-// }
-
-// void Observer::changeState()
-// {
-//     state->handleChange(this);
-// }
 
 void PizzaMenu::notifyObserver(string message)
 {
@@ -66,23 +51,17 @@ void SpecialMenu::notifyObserver(string message)
 
 void Customer::update(string message)
 {
-    //changeState();
     cout << "Customer received update: " << message << endl;
 }
 
 void Website::update(string message)
 {
-    //changeState();
     cout << "Website received update: " << message << endl;
 }
 
 Menus::~Menus()
 {
     observers.clear();
-    // for(int i = 0; i < observers.size(); i++)
-    // {
-    //     delete observers[i];
-    // }
     for (int i = 0; i < pizzas.size(); i++) {
         delete pizzas[i];
     }

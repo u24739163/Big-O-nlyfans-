@@ -92,7 +92,6 @@ BasePizza::~BasePizza()
 
 BasePizza::BasePizza(const BasePizza& other) 
 {
-    // Deep copy the PizzaComponent
     topping = other.topping->clone();
 }
 
@@ -101,11 +100,13 @@ Pizza* BasePizza::clone() const
     return new BasePizza(*this);
 }
 
-// PizzaDecorator copy constructor (needs to be added to header too)
 PizzaDecorator::PizzaDecorator(const PizzaDecorator& other)
 {
-    // Deep copy the base pizza
-    basePizza = other.basePizza ? other.basePizza->clone() : nullptr;
+    if (other.basePizza) {
+        basePizza = other.basePizza->clone();
+    } else {
+        basePizza = nullptr;
+    }
 }
 
 Pizza* PizzaDecorator::clone() const

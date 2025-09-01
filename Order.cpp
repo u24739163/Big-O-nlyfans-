@@ -45,7 +45,7 @@ void Order::removePizza(Pizza* pizza)
         if (pizzas[i] == pizza) 
         {
             pizzas.erase(pizzas.begin() + i);
-            break; //otherwise will erase multiple instances of that kind of pizza :)
+            break;
         }
     }
     if (pizzas.size() < 5) 
