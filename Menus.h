@@ -16,6 +16,7 @@ class Menus {
         void addPizza(Pizza * pizza);
         void removePizza(Pizza * pizza);
         virtual void notifyObserver(string message) = 0;
+        ~Menus();
     protected:
         vector<Observer*> observers;    
         vector<Pizza*> pizzas;
@@ -23,13 +24,8 @@ class Menus {
 
 class Observer {
     public:
-        // void setState(State* state);
-        // string getState();
-        // void changeState();
         virtual void update(string message) = 0;
         virtual ~Observer() {}
-    protected:
-        //State* state;
 };
 
 class PizzaMenu : public Menus {

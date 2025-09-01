@@ -79,7 +79,7 @@ void Order::printOrder()
     for (int i = 0; i < pizzas.size(); i++) 
     {
         pizzas[i]->printPizza();
-    }
+    }   
 }
 
 void Order::setState(State* state)

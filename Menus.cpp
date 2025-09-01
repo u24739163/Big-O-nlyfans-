@@ -75,3 +75,16 @@ void Website::update(string message)
     //changeState();
     cout << "Website received update: " << message << endl;
 }
+
+Menus::~Menus()
+{
+    observers.clear();
+    // for(int i = 0; i < observers.size(); i++)
+    // {
+    //     delete observers[i];
+    // }
+    for (int i = 0; i < pizzas.size(); i++) {
+        delete pizzas[i];
+    }
+    pizzas.clear();
+}
