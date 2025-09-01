@@ -1,3 +1,5 @@
+// pizza.h
+
 #ifndef PIZZA_H
 #define PIZZA_H
 
@@ -32,6 +34,7 @@ class BasePizza : public Pizza {
 class PizzaDecorator : public Pizza {
     public:
         PizzaDecorator(Pizza * pizza);
+        PizzaDecorator(const PizzaDecorator& other); // Add copy constructor
         Pizza* clone() const override;
         virtual string getName();
         virtual double getPrice();

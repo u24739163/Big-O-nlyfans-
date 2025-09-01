@@ -75,6 +75,14 @@ int main() {
 
     orderUp->printOrder();
 
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+
     // pepperoniBase->printPizza();
     // vegetarianBase->printPizza();
     // meatLoversBase->printPizza();
