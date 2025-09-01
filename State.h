@@ -1,7 +1,11 @@
-#ifndef State_H
-#define State_H
+#ifndef STATE_H
+#define STATE_H
 
+#include <string>
 #include "Order.h"
+using namespace std;
+
+class Order;
 class State {
     public:
         virtual void handleChange(Order* order) = 0;

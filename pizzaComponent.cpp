@@ -6,6 +6,17 @@ Topping::Topping(string name, double price)
     this->price = price;
 }
 
+Topping::Topping(const Topping& other)
+{
+    this->name = other.name;
+    this->price = other.price;
+}
+
+Topping* Topping::clone() const 
+{
+    return new Topping(*this);
+}
+
 string Topping::getName()
 {
     return name;
@@ -53,4 +64,18 @@ ToppingGroup::ToppingGroup(string groupName)
 {
     this->name = groupName;
     this->price = 0;
+}
+
+ToppingGroup::ToppingGroup(const ToppingGroup& other)
+{
+    this->name = other.name;
+    this->price = other.price;
+    for (const auto& topping : other.toppings) {
+        this->toppings.push_back(topping->clone());
+    }
+}
+
+ToppingGroup* ToppingGroup::clone() const 
+{
+    return new ToppingGroup(*this);
 }

@@ -2,10 +2,12 @@
 #define ORDER_H
 
 #include <vector>
+#include <string>
 #include "pizza.h"
 #include "DiscountStrategy.h"
 #include "State.h"
 
+class State;
 class Order {
     public:
         Order();

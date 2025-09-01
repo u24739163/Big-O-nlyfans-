@@ -1,49 +1,83 @@
 #include <iostream>
 #include "pizzaComponent.h"
 #include "pizza.h"
+#include "State.h"
 #include "Order.h"
+#include "Menus.h"
 
 using namespace std;
 
 int main() {
-    Topping* t1 = new Topping("Dough",10);
-    Topping* t2 = new Topping("Sauce",10);
-    Topping* t3 = new Topping("Cheese",10);
-    Topping* t4 = new Topping("Pineapple",10);
+    // Topping* t1 = new Topping("Dough",10);
+    // Topping* t2 = new Topping("Sauce",10);
+    // Topping* t3 = new Topping("Cheese",10);
+    // Topping* t4 = new Topping("Pineapple",10);
 
     ToppingGroup* simplePizza = new ToppingGroup("simplePizza"); // Initialize with new
-    simplePizza->add(t1);
-    simplePizza->add(t2);
-    simplePizza->add(t3);
-    //simplePizza->add(t4);
+    simplePizza->add(new Topping("Dough",10));
+    simplePizza->add(new Topping("Sauce",10));
+    simplePizza->add(new Topping("Cheese",10));
+    simplePizza->add(new Topping("Pineapple",10));
     
     ToppingGroup* complexPizza = new ToppingGroup("complexPizza");
 
     //complexPizza->add(t1);
     //complexPizza->add(t2);
     complexPizza->add(simplePizza);
-    complexPizza->add(t4);
+    complexPizza->add(new Topping("Pineapple",10));
     
     //Decorating the pizza
-    // ExtraCheese* pizzaWithExtras = new ExtraCheese(new StuffedCrust (new BasePizza(complexPizza)));
+    ExtraCheese* pizzaWithExtras = new ExtraCheese(new StuffedCrust (new BasePizza(complexPizza)));
     
     // //Printing the new decorated pizza
     // cout << pizzaWithExtras->getName() << endl;
     // cout << "Total price: " << pizzaWithExtras->getPrice() << endl;
 
+    ToppingGroup* pepperoni = new ToppingGroup("Pepperoni");
+    ToppingGroup* vegetarian = new ToppingGroup("Vegetarian");
+
+    pepperoni->add(new Topping("Dough",10));
+    pepperoni->add(new Topping("Cheese",10));
+    pepperoni->add(new Topping("Sauce",10));
+    pepperoni->add(new Topping("Pepperoni",20));
+
+    vegetarian->add(new Topping("Dough",10));
+    vegetarian->add(new Topping("Cheese",10));
+    vegetarian->add(new Topping("Sauce",10));
+    vegetarian->add(new Topping("Mushrooms",10));
+    vegetarian->add(new Topping("Green Peppers",10));
+    vegetarian->add(new Topping("Onions",10));
+
+
+    ToppingGroup* meatLovers = new ToppingGroup("Meat Lovers");
+
+    meatLovers->add(pepperoni->clone());
+    meatLovers->add(new Topping("Beef Sausage",30));
+    meatLovers->add(new Topping("Salami",20));
+
+    ToppingGroup* vegetarianDeluxe = new ToppingGroup("Vegetarian Deluxe");
+    vegetarianDeluxe->add(vegetarian->clone());
+    vegetarianDeluxe->add(new Topping("Feta Cheese",15));
+    vegetarianDeluxe->add(new Topping("Olives",15));
 
     //The pizza to be decorated
-    BasePizza* pizza = new BasePizza(complexPizza);
-    // BasePizza* pizza2 = new BasePizza(simplePizza);
-    
+    BasePizza* meatLoversExtra = new BasePizza(meatLovers->clone());
+    BasePizza* vegetarianDeluxeExtra = new BasePizza(vegetarianDeluxe->clone());
+
     //adding pizza's to order
-    //Order* orderUp = new Order();
-    //orderUp->addPizza(pizza);
-    // orderUp->addPizza(pizza2);
+    Order* orderUp = new Order();
+    orderUp->addPizza(meatLoversExtra);
+    orderUp->addPizza(vegetarianDeluxeExtra);
     orderUp->addPizza(pizzaWithExtras);
+    //orderUp->addPizza(pizza5);
+    // orderUp->addPizza(pizza6);
 
     orderUp->calculateTotal();
 
+    // orderUp->removePizza(pizza3);
+    // orderUp->removePizza(pizza4);
+
+    // orderUp->calculateTotal();
     // delete simplePizza; 
     // delete complexPizza;
     // delete t1;
@@ -53,10 +87,10 @@ int main() {
     //delete simplePizza;
     //delete complexPizza;
     //delete pizzaWithExtras;
-    delete pizza;
+    //delete pizza;
     // delete pizza2;
     // delete orderUp;
-    //delete orderUp;
+    delete orderUp;
     
     return 0;
 }

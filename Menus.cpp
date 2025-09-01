@@ -8,7 +8,12 @@ void Menus::addObserver(Observer* observer)
 
 void Menus::removeObserver(Observer* observer)
 {
-    observers.erase(remove(observers.begin(), observers.end(), observer), observers.end());
+    for (auto it = observers.begin(); it != observers.end(); ++it) {
+        if (*it == observer) {
+            observers.erase(it);
+            break;  // Remove only the first occurrence
+        }
+    }
 }
 
 void Menus::addPizza(Pizza * pizza)
@@ -19,7 +24,12 @@ void Menus::addPizza(Pizza * pizza)
 
 void Menus::removePizza(Pizza * pizza)
 {
-    pizzas.erase(remove(pizzas.begin(), pizzas.end(), pizza), pizzas.end());
+    for (auto it = pizzas.begin(); it != pizzas.end(); ++it) {
+        if (*it == pizza) {
+            pizzas.erase(it);
+            break;  // Remove only the first occurrence
+        }
+    }
     notifyObserver("Pizza removed: " + pizza->getName());
 }
 

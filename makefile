@@ -1,6 +1,6 @@
 
 filesToDelete = TestingMain pizzaComponent pizza Order Menus State 
-filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp Order.cpp DiscountStrategy.cpp Menus.cpp State.cpp
+filesToCompile = TestingMain.cpp pizzaComponent.cpp pizza.cpp State.cpp Order.cpp DiscountStrategy.cpp Menus.cpp 
 filesInCoverageReport = TestingMain pizzaComponent pizza Order DiscountStrategy Menus State 
 
 main:

@@ -3,10 +3,12 @@
 Order::Order()
 {
     discountStrategy = new RegularDiscount();
+    state = new Ordered();
 }
 
 Order::~Order()
 {
+    delete state;
     delete discountStrategy;
     for (int i = 0; i < pizzas.size(); i++) 
     {
@@ -74,6 +76,7 @@ double Order::applyDiscount()
 
 void Order::setState(State* state)
 {
+    delete this->state;
     this->state = state;
 }
 

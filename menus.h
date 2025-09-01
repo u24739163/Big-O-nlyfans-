@@ -1,12 +1,14 @@
-#ifndef MENUS.H
-#define MENUS.H
+#ifndef MENUS_H
+#define MENUS_H
 
 #include <string>
 #include <vector>
 #include <iostream>
 #include "pizza.h"
-#include "state.h"
 
+using namespace std;
+
+class Observer;
 class Menus {
     public:
         void addObserver(Observer* observer);
@@ -24,7 +26,8 @@ class Observer {
         // void setState(State* state);
         // string getState();
         // void changeState();
-        virtual void update(string message) = 0;  
+        virtual void update(string message) = 0;
+        virtual ~Observer() {}
     protected:
         //State* state;
 };
