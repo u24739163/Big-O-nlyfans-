@@ -30,7 +30,7 @@ class RegularDiscount : public DiscountStrategy
 class BulkDiscount : public DiscountStrategy 
 {
     public:
-        BulkDiscount(std::vector<Pizza*> p);
+        BulkDiscount(vector<Pizza*> p);
         double applyDiscount() override;
 };
 
