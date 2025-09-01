@@ -44,6 +44,7 @@ PizzaDecorator::~PizzaDecorator()
 {
     delete basePizza;
 }
+
 BasePizza::BasePizza(PizzaComponent * base)
 {
     topping = base;
@@ -57,4 +58,9 @@ string BasePizza::getName()
 double BasePizza::getPrice()
 {
     return topping->getPrice();
+}
+
+BasePizza::~BasePizza()
+{
+    delete topping;
 }

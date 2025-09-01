@@ -9,6 +9,7 @@ class Pizza {
         virtual string getName() = 0;
         virtual double getPrice() = 0;
         void printPizza();
+        virtual ~Pizza() {};
     private:
 };
 
@@ -18,6 +19,7 @@ class BasePizza : public Pizza {
         BasePizza(PizzaComponent * base);
         string getName() override;
         double getPrice() override;
+        virtual ~BasePizza();
     private:
         PizzaComponent * topping;
 };

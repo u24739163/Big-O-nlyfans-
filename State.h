@@ -2,34 +2,33 @@
 #define State_H
 
 #include "Order.h"
-#include "Menus.h"
 class State {
     public:
-        virtual void handleChange(Observer* observer) = 0;
+        virtual void handleChange(Order* order) = 0;
         virtual string getState() = 0;
 };
 
 class Ordered : public State {
     public:
-        void handleChange(Observer* observer) override;
+        void handleChange(Order* order) override;
         string getState() override;
 };
 
 class Preparing : public State {
     public:
-        void handleChange(Observer* observer) override;
+        void handleChange(Order* order) override;
         string getState() override;
 };
 
 class Delivering : public State {
     public:
-        void handleChange(Observer* observer) override;
+        void handleChange(Order* order) override;
         string getState() override;
 };
 
 class Delivered : public State {
     public:
-        void handleChange(Observer* observer) override;
+        void handleChange(Order* order) override;
         string getState() override;
 };
 
