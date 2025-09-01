@@ -35,7 +35,7 @@ class PizzaDecorator : public Pizza {
         Pizza* clone() const override;
         virtual string getName();
         virtual double getPrice();
-        virtual void printPizza() ;
+        virtual void printPizza();
         virtual ~PizzaDecorator();
     private:
         Pizza * basePizza;
