@@ -89,3 +89,9 @@ BasePizza::~BasePizza()
 {
     delete topping;
 }
+
+BasePizza::BasePizza(const BasePizza& other) 
+{
+    
+
+}

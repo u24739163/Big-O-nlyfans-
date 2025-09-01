@@ -71,7 +71,7 @@ int main() {
     orderUp->addPizza(vegetarianBase);
     orderUp->addPizza(meatLoversBase);
     orderUp->addPizza(vegetarianDeluxeBase);
-    orderUp->addPizza(new ExtraCheese(new StuffedCrust (new BasePizza(vegetarianDeluxe->clone()))));
+    orderUp->addPizza(new ExtraCheese(new StuffedCrust (vegetarianDeluxeBase->clone())));
 
     orderUp->printOrder();
 
