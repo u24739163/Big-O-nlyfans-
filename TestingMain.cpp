@@ -46,9 +46,24 @@ int main() {
     orderUp->addPizza(vegetarianBase);
     orderUp->addPizza(meatLoversBase);
     orderUp->addPizza(vegetarianDeluxeBase);
-    orderUp->addPizza(new ExtraCheese(new StuffedCrust(new BasePizza(vegetarianDeluxe->clone()))));
+    orderUp->addPizza(new ExtraCheese(new StuffedCrust (vegetarianDeluxeBase->clone())));
 
     orderUp->printOrder();
+
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+    orderUp->changeState();
+    cout << orderUp->getState() << endl;
+
+    // pepperoniBase->printPizza();
+    // vegetarianBase->printPizza();
+    // meatLoversBase->printPizza();
+    // vegetarianDeluxeBase->printPizza();
+    // extraPizza->printPizza();
+
     orderUp->calculateTotal();
 
     // Test State functionality
